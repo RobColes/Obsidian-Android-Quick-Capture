@@ -1,0 +1,57 @@
+# Built application files
+*.apk
+*.aar
+*.ap_
+*.aab
+
+# Files for the ART/Dalvik VM
+*.dex
+
+# Java class files
+*.class
+
+# Generated files
+bin/
+gen/
+out/
+
+# Gradle files
+.gradle/
+build/
+captures/
+.externalNativeBuild/
+.cxx/
+local.properties
+
+# Android Studio
+*.iml
+.idea/
+.DS_Store
+*.log
+
+# Keystore files
+*.jks
+*.keystore
+
+# Google Services (e.g. APIs or Firebase)
+google-services.json
+
+# Android Profiling
+*.hprof
+
+# Kotlin
+*.kotlin_module
+
+# Version control
+vcs.xml
+
+# Android Studio captures folder
+captures/
+
+# Android Studio generated files
+*.ap_
+*.dex
+*.class
+*.log
+*.iml
+*.hprof 
