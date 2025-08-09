@@ -227,7 +227,7 @@ class MainActivity : AppCompatActivity() {
             }
             
             // Show success message and close app
-            showSuccessAndClose("File saved: $fileName")
+            showSuccessAndClose("File saved: $fileName, remember to sync.")
             
         } catch (e: Exception) {
             showError("Failed to create file: ${e.message}")
@@ -272,7 +272,7 @@ class MainActivity : AppCompatActivity() {
             }
             
             // Show success message and close app
-            showSuccessAndClose("Text appended to Scratchpad.md")
+            showSuccessAndClose("Text appended to Scratchpad.md. Remember to sync with Obsidian.")
             
         } catch (e: Exception) {
             showError("Failed to append to scratchpad: ${e.message}")
@@ -290,13 +290,10 @@ class MainActivity : AppCompatActivity() {
      * Show success message, remind user to sync Obsidian, and close the app
      */
     private fun showSuccessAndClose(successMessage: String) {
-        // Show success message
-        Toast.makeText(this, successMessage, Toast.LENGTH_SHORT).show()
-        
         // Brief delay, then show sync reminder and close
         textInput.postDelayed({
-            Toast.makeText(this@MainActivity, 
-                getString(R.string.toast_sync_reminder), 
+            Toast.makeText(this@MainActivity,
+                successMessage,
                 Toast.LENGTH_LONG).show()
             
             // Close app after showing the reminder
