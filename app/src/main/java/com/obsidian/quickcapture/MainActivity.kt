@@ -96,15 +96,35 @@ class MainActivity : AppCompatActivity() {
     }
     
     /**
-     * Initialize file paths using public Documents directory (same as New File function)
-     * Both New File and Append should use the same base directory structure
+     * Initialize file paths using SharedPreferences or default values
+     * Paths are now configurable through the settings screen
      */
     private fun initializeFilePaths() {
-        // Use public Documents directory - same base path for both New File and Append operations
+        val sharedPrefs = getSharedPreferences(SettingsActivity.PREFS_NAME, MODE_PRIVATE)
+        val documentsPathName = sharedPrefs.getString(
+            SettingsActivity.PREF_DOCUMENTS_PATH, 
+            SettingsActivity.DEFAULT_DOCUMENTS_PATH
+        ) ?: SettingsActivity.DEFAULT_DOCUMENTS_PATH
+        
+        val scratchpadPathName = sharedPrefs.getString(
+            SettingsActivity.PREF_SCRATCHPAD_PATH,
+            SettingsActivity.DEFAULT_SCRATCHPAD_PATH
+        ) ?: SettingsActivity.DEFAULT_SCRATCHPAD_PATH
+        
+        // Use public Documents directory as base
         val documentsPath = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOCUMENTS)
-        appDocumentsPath = File(documentsPath, "Robsidian")
-        transientPath = File(appDocumentsPath, "Transient")
-        scratchpadFile = File(transientPath, "Scratchpad.md")
+        appDocumentsPath = File(documentsPathName)  // File(documentsPath, documentsPathName)
+        
+        // Handle scratchpad path - it might contain subdirectories
+        // scratchpadFile = File(appDocumentsPath, scratchpadPathName)
+        scratchpadFile = File(scratchpadPathName) // .parentFile ?: File(appDocumentsPath, "Transient")
+
+        //val oldappDocumentsPath = File(documentsPath, "Robsidian")
+        //val oldtransientPath = File(appDocumentsPath, "Transient")
+        //val oldscratchpadFile = File(transientPath, "Scratchpad.md")
+
+
+
     }
     
     /**
@@ -128,6 +148,13 @@ class MainActivity : AppCompatActivity() {
         // Cancel button - simply close the app without saving
         buttonCancel.setOnClickListener {
             finish()
+        }
+        
+        // Long-press on Cancel button opens settings
+        buttonCancel.setOnLongClickListener {
+            val intent = Intent(this, SettingsActivity::class.java)
+            startActivity(intent)
+            true // consume the long click event
         }
         
         // New File button - create a timestamped markdown file
@@ -250,12 +277,12 @@ class MainActivity : AppCompatActivity() {
         
         try {
             // Ensure the directory structure exists
-            if (!transientPath.exists()) {
-                if (!transientPath.mkdirs()) {
-                    showError("Failed to create Transient directory")
-                    return
-                }
-            }
+            //if (!transientPath.exists()) {
+            //    if (!transientPath.mkdirs()) {
+            //        showError("Failed to create Transient directory")
+            //        return
+            //    }
+           // }
             
             // Create scratchpad file if it doesn't exist
             if (!scratchpadFile.exists()) {

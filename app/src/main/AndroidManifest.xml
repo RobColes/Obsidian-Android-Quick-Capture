@@ -37,6 +37,12 @@
                 <data android:mimeType="text/plain" />
             </intent-filter>
         </activity>
+        
+        <!-- Settings Activity -->
+        <activity
+            android:name=".SettingsActivity"
+            android:exported="false"
+            android:theme="@style/Theme.ObsQuickCapture.FullScreen" />
     </application>
 
 </manifest>
