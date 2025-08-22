@@ -5,6 +5,10 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import android.os.Environment
+import android.widget.TextView
+import android.content.ClipData
+import android.content.ClipboardManager
 
 /**
  * SettingsActivity for configuring file paths
@@ -16,6 +20,8 @@ class SettingsActivity : AppCompatActivity() {
     private lateinit var editScratchpadPath: EditText
     private lateinit var buttonCancel: Button
     private lateinit var buttonSave: Button
+    private lateinit var textExampleDocuments: TextView
+    private lateinit var buttonCopyExample: Button
     
     companion object {
         const val PREFS_NAME = "ObsQuickCapPrefs"
@@ -32,6 +38,7 @@ class SettingsActivity : AppCompatActivity() {
         setContentView(R.layout.activity_settings)
         
         initializeViews()
+        setUpExampleDocumentsRow()
         loadCurrentSettings()
         setupButtonListeners()
     }
@@ -41,6 +48,29 @@ class SettingsActivity : AppCompatActivity() {
         editScratchpadPath = findViewById(R.id.editScratchpadPath)
         buttonCancel = findViewById(R.id.buttonCancel)
         buttonSave = findViewById(R.id.buttonSave)
+        textExampleDocuments = findViewById(R.id.textExampleDocuments)
+        buttonCopyExample = findViewById(R.id.buttonCopyExample)
+    }
+    
+    private fun setUpExampleDocumentsRow() {
+        val documentsPath = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOCUMENTS)
+        val examplePath = documentsPath.absolutePath
+        textExampleDocuments.text = "Example: $examplePath"
+        
+        buttonCopyExample.setOnClickListener {
+            val clipboard = getSystemService(CLIPBOARD_SERVICE) as ClipboardManager
+            val clip = ClipData.newPlainText("Documents path", examplePath)
+            clipboard.setPrimaryClip(clip)
+            Toast.makeText(this, "Documents path copied", Toast.LENGTH_SHORT).show()
+        }
+        
+        // Tapping the text also copies (convenience)
+        textExampleDocuments.setOnClickListener {
+            val clipboard = getSystemService(CLIPBOARD_SERVICE) as ClipboardManager
+            val clip = ClipData.newPlainText("Documents path", examplePath)
+            clipboard.setPrimaryClip(clip)
+            Toast.makeText(this, "Documents path copied", Toast.LENGTH_SHORT).show()
+        }
     }
     
     private fun loadCurrentSettings() {

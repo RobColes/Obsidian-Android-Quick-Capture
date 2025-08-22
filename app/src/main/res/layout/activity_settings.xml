@@ -17,6 +17,37 @@
         android:gravity="center"
         android:layout_marginBottom="32dp" />
 
+    <!-- Example Documents Path Row -->
+    <LinearLayout
+        android:id="@+id/exampleRow"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginBottom="16dp"
+        android:gravity="center_vertical">
+
+        <TextView
+            android:id="@+id/textExampleDocuments"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Example:"
+            android:textColor="@android:color/white"
+            android:textSize="14sp"
+            android:maxLines="2"
+            android:ellipsize="end" />
+
+        <Button
+            android:id="@+id/buttonCopyExample"
+            android:layout_width="wrap_content"
+            android:layout_height="36dp"
+            android:text="Copy"
+            android:textSize="12sp"
+            android:backgroundTint="#616161"
+            android:textColor="@android:color/white"
+            android:layout_marginStart="12dp" />
+    </LinearLayout>
+
     <!-- Obsidian Documents Path Section -->
     <TextView
         android:layout_width="match_parent"
