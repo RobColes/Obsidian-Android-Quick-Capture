@@ -15,7 +15,7 @@ This was generated with help from Claude Code.
 
 ## File Locations
 
-Files are stored in app-specific external storage (special permissions required):
+Files are stored in app-specific external storage (special permissions required)
 The locations are configurable. New files are expecting a folder in your Obsidian vault,
 the append to file is expected to be an existing markdown file. I typically create new files in
 the folder I use as my obsidian inbox, and I have a scratchpad.md file permaently pinned in the
