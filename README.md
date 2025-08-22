@@ -2,24 +2,30 @@
 
 A simple Android application for quickly capturing text and saving it to Obsidian vault files.
 
+![Main capture screen](ReadMeImages/ObsQuickCap.jpg)
+
+This was generated with help from Claude Code.
+
 ## Features
 
 - **Quick Text Input**: Large, scrollable text area with auto-focus
 - **New File Creation**: Save text to timestamped markdown files (`yyyy-MM-dd HHmm.md`)
 - **Append to Scratchpad**: Add text to a persistent scratchpad file
 - **Share Target**: Receive shared text from other Android apps
-- **Clean UI**: Full-screen interface with buttons positioned to avoid keyboard interference
 
 ## File Locations
 
-Files are stored in app-specific external storage (no special permissions required):
+Files are stored in app-specific external storage (special permissions required):
+The locations are configurable. New files are expecting a folder in your Obsidian vault,
+the append to file is expected to be an existing markdown file. I typically create new files in
+the folder I use as my obsidian inbox, and I have a scratchpad.md file permaently pinned in the
+right hand sidebar. You access the config by long-pressing the "Cancel" button. Paths to internal
+storage can be fiddly so it displays the documents folder for reference.
 
-- **New Files**: `Android/data/com.obsidian.quickcapture/files/Documents/Robsidian/yyyy-MM-dd HHmm.md`
-- **Scratchpad**: `Android/data/com.obsidian.quickcapture/files/Documents/Robsidian/Transient/Scratchpad.md`
-
-**Note**: These paths are relative to your device's external storage root (usually `/storage/emulated/0/` on most devices).
+![Settings panel](ReadMeImages/Settings.jpg)
 
 ## Building the App
+Build in Android Studio
 
 ### Prerequisites
 
@@ -107,7 +113,7 @@ The code is extensively commented for educational purposes. Key areas include:
 
 ### Storage Issues
 - Ensure your device has sufficient storage space
-- Check that the Documents folder is accessible
+- Check that the target folder is accessible
 - For Android 10 and below, verify storage permissions are granted
 
 ### Build Issues
@@ -119,12 +125,3 @@ The code is extensively commented for educational purposes. Key areas include:
 - Check device logs in Android Studio's Logcat
 - Verify target device is running Android 8.0 or higher
 - Ensure proper permissions are granted
-
-## Future Enhancements
-
-Potential improvements for learning:
-- Custom file naming patterns
-- Export to different formats
-- Dark/light theme toggle
-- Text formatting options
-- Cloud sync integration
