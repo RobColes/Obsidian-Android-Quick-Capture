@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:background="@android:color/black">
+
+    <!-- Title -->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Settings"
+        android:textColor="@android:color/white"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:gravity="center"
+        android:layout_marginBottom="32dp" />
+
+    <!-- Example Documents Path Row -->
+    <LinearLayout
+        android:id="@+id/exampleRow"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginBottom="16dp"
+        android:gravity="center_vertical">
+
+        <TextView
+            android:id="@+id/textExampleDocuments"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Example:"
+            android:textColor="@android:color/white"
+            android:textSize="14sp"
+            android:maxLines="2"
+            android:ellipsize="end" />
+
+        <Button
+            android:id="@+id/buttonCopyExample"
+            android:layout_width="wrap_content"
+            android:layout_height="36dp"
+            android:text="Copy"
+            android:textSize="12sp"
+            android:backgroundTint="#616161"
+            android:textColor="@android:color/white"
+            android:layout_marginStart="12dp" />
+    </LinearLayout>
+
+    <!-- Obsidian Documents Path Section -->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Obsidian Documents Path:"
+        android:textColor="@android:color/white"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:layout_marginBottom="8dp" />
+
+    <EditText
+        android:id="@+id/editDocumentsPath"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:background="@android:color/darker_gray"
+        android:textColor="@android:color/white"
+        android:textColorHint="@android:color/darker_gray"
+        android:hint="e.g., Robsidian"
+        android:padding="12dp"
+        android:textSize="14sp"
+        android:layout_marginBottom="24dp"
+        android:inputType="text" />
+
+    <!-- Scratchpad File Path Section -->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Scratchpad File Path:"
+        android:textColor="@android:color/white"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:layout_marginBottom="8dp" />
+
+    <EditText
+        android:id="@+id/editScratchpadPath"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:background="@android:color/darker_gray"
+        android:textColor="@android:color/white"
+        android:textColorHint="@android:color/darker_gray"
+        android:hint="e.g., Transient/Scratchpad.md"
+        android:padding="12dp"
+        android:textSize="14sp"
+        android:layout_marginBottom="32dp"
+        android:inputType="text" />
+
+    <!-- Buttons -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center">
+
+        <Button
+            android:id="@+id/buttonCancel"
+            android:layout_width="0dp"
+            android:layout_height="48dp"
+            android:layout_weight="1"
+            android:layout_marginEnd="8dp"
+            android:text="Cancel"
+            android:textColor="@android:color/white"
+            android:backgroundTint="#D32F2F"
+            android:textSize="16sp" />
+
+        <Button
+            android:id="@+id/buttonSave"
+            android:layout_width="0dp"
+            android:layout_height="48dp"
+            android:layout_weight="1"
+            android:layout_marginStart="8dp"
+            android:text="Save"
+            android:textColor="@android:color/white"
+            android:backgroundTint="#388E3C"
+            android:textSize="16sp" />
+
+    </LinearLayout>
+
+</LinearLayout>

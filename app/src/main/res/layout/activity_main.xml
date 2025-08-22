@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@android:color/black">
+
+    <!-- Text input area - positioned in top half of screen -->
+    <EditText
+        android:id="@+id/textInput"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:layout_margin="16dp"
+        android:background="@android:color/black"
+        android:textColor="@android:color/white"
+        android:textColorHint="@android:color/darker_gray"
+        android:hint="Enter your text here..."
+        android:gravity="top|start"
+        android:inputType="textMultiLine|textCapSentences"
+        android:scrollbars="vertical"
+        android:maxLines="20"
+        android:textSize="16sp"
+        android:padding="12dp"
+        android:selectAllOnFocus="false"
+        android:cursorVisible="true"
+        android:focusableInTouchMode="true" />
+
+    <!-- Button container - arranged horizontally -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginBottom="32dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp">
+
+        <!-- Cancel Button - Red -->
+        <Button
+            android:id="@+id/buttonCancel"
+            android:layout_width="0dp"
+            android:layout_height="56dp"
+            android:layout_weight="1"
+            android:layout_marginEnd="8dp"
+            android:text="Cancel"
+            android:textColor="@android:color/white"
+            android:backgroundTint="#D32F2F"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+        <!-- New File Button - Green -->
+        <Button
+            android:id="@+id/buttonNewFile"
+            android:layout_width="0dp"
+            android:layout_height="56dp"
+            android:layout_marginStart="4dp"
+            android:layout_marginEnd="4dp"
+            android:layout_weight="1"
+            android:backgroundTint="#388E3C"
+            android:text="@string/button_new_file"
+            android:textColor="@android:color/white"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+        <!-- Append Button - Darker Green -->
+        <Button
+            android:id="@+id/buttonAppend"
+            android:layout_width="0dp"
+            android:layout_height="56dp"
+            android:layout_weight="1"
+            android:layout_marginStart="8dp"
+            android:text="Append"
+            android:textColor="@android:color/white"
+            android:backgroundTint="#2E7D32"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+</LinearLayout>
