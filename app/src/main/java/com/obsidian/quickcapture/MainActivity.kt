@@ -249,8 +249,8 @@ class MainActivity : AppCompatActivity() {
             val newFile = File(appDocumentsPath, fileName)
             
             // Write the content to the file (plain markdown, no frontmatter)
-            FileWriter(newFile).use { writer ->
-                writer.write(inputText)
+            FileWriter(newFile,true).use { writer ->
+                writer.write(inputText + '\n')
             }
             
             // Show success message and close app
